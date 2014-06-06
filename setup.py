@@ -7,13 +7,13 @@ from setuptools import setup
 description = 'let gunicorn easy install as a service'
 
 setup(name='gunicorn-service',
-      version=ltable.__version__,
+      version=gunicorn_service.__version__,
       description=description,
       long_description=open('./README.rst', 'r').read(),
       author="MaxiL",
       author_email='maxil@interserv.com.tw',
       url='https://github.com/maxi119/gunicorn_service',
-      packages=['ltable'],
+      packages=['gunicorn_service'],
       download_url="https://github.com/maxi119/gunicorn_service",
       keywords="gunicorn service",
       classifiers=[
