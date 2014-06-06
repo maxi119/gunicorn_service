@@ -13,7 +13,7 @@ example: /etc/init.d/myproj
     from  gunicorn_service import ServiceSetting, gunicorn_service
 
 
-    p = ServiceSetting(   work_dir="/home/SP/Dev/WebServer/Server/Game/Game/",
+    p = ServiceSetting(   work_dir="/home/WebServer/Server/Game/Game/",
                           bind_address="0.0.0.0:55555",
                           settings="Game.settings.local", 
                           name=os.path.basename(__file__), 
