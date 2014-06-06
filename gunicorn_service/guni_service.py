@@ -5,20 +5,9 @@ import subprocess, shlex
 
 class ServiceSetting():
     def __init__(self,
-                work_dir, bind_address, settings, name='django',
-                backlog=1024, workers=1, worker_connections=512,
-                max_request=40960, worker_class='gevent', user='root', 
+                config=None,name='django',
                 exe="/usr/local/bin/gunicorn"):
-        self.work_dir=work_dir
-        self.bind_address=bind_address
-        self.settings=settings
-        self.backlog=backlog
-        self.workers=workers
-        self.worker_connections=worker_connections
-        self.max_request=max_request
-        self.worker_class=worker_class
         self.name=name
-        self.user=user
         self.gunicorn_exe=exe
 
     @property
@@ -45,12 +34,10 @@ def start_gunicorn(p):
         print( "last run still running(%s) please try 'stop' first"%pid )
         return
 
-    command="{exe} --chdir '{workdir}' --max-requests {mreq} --backlog {backlog} --user {user} --settings {conf} --workers {workers} --worker-connections {wcon} --daemon --pid {pid} --bind {bind} wsgi".format(
-        **dict( workdir=p.work_dir, mreq=p.max_request, backlog=p.backlog, user=p.user,
-              conf=p.settings, workers=p.workers, wcon=p.worker_connections,
-              pid=pidfile, bind=p.bind_address, exe=p.gunicorn_exe
+    command="{exe} --config {config} wsgi".format(
+        **dict( config=p.config, pid=pidfile, exe=p.gunicorn_exe
           ) )
-    print( command )
+    #print( command )
     os.system(  command )
     wait_count = 5
     wait_interval = 1
