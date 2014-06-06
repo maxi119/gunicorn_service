@@ -1,14 +1,15 @@
 ﻿
 startup gunicorn as service
 ====
-#Add python file as service in /etc/init.d/
+Add python file as service in /etc/init.d/
 
-#example: /etc/init.d/myproj
+example: /etc/init.d/myproj
 
     #!/usr/local/bin/python
 
 
     import sys, os
+    
     from  gunicorn_service import ServiceSetting, gunicorn_service
 
 
@@ -21,5 +22,5 @@ startup gunicorn as service
 
     gunicorn_service( p )
 
-#use service start| stop | stat, and try chkconfig myproj on 
+use service start| stop | stat, and try chkconfig myproj on 
 
