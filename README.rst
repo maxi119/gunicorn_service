@@ -29,7 +29,7 @@ myproj.py
     workers             = 1                     
     worker_connections  = 2048                  
     daemon              = True                  
-    max_requests        = 40000                 
+    max_requests        = 40000
     chdir               = "/hoem/SP/Dev/TestWebServer/Server/Game/Game"
     worker_class        = "gevent"              
     
