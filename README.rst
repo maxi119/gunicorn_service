@@ -12,7 +12,10 @@ example: /etc/init.d/myproj
     
     from  gunicorn_service import ServiceSetting, gunicorn_service
 
-
+    # 
+    # work dir setting in /home/project/myproj.py
+    # and work dir contains wsgi as startup module
+    #
     p = ServiceSetting(   config="/home/project/myproj.py"
                           name=os.path.basename(__file__), 
                           exe="/usr/local/bin/gunicorn" )
