@@ -9,6 +9,7 @@ class ServiceSetting():
                 exe="/usr/local/bin/gunicorn"):
         self.name=name
         self.gunicorn_exe=exe
+        self.config=config
 
     @property
     def pidfile_num(self):
@@ -34,7 +35,7 @@ def start_gunicorn(p):
         print( "last run still running(%s) please try 'stop' first"%pid )
         return
 
-    command="{exe} --config {config} wsgi".format(
+    command="{exe} --config {config} --pid {pid} wsgi".format(
         **dict( config=p.config, pid=pidfile, exe=p.gunicorn_exe
           ) )
     #print( command )
