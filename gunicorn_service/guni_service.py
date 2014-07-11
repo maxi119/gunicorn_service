@@ -74,7 +74,8 @@ def stop_gunicorn( p ):
             try:
                 os.remove( pidfile )
             except Exception as e:
-                print( str( e ) )
+                #print( str( e ) )
+                pass
             break
 
         time.sleep( 5 )
