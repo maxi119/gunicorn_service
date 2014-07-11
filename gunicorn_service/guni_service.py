@@ -99,8 +99,8 @@ def gunicorn_service( p ):
     elif sys.argv[1] == "stop":
         stop_gunicorn( p )
     elif sys.argv[1] == "restart":
-        start_gunicorn( p )
         stop_gunicorn( p )
+        start_gunicorn( p )
     elif sys.argv[1] == "stat":
         stat_gunicorn( p )
     else:
